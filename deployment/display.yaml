@@ -15,7 +15,7 @@ spec:
             - name: DISPLAY
               value: ':0'
           image: registry.opensuse.org/home/atgracey/wallboardos/15.4/firefox:latest
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           securityContext:
             runAsUser: 1000
           volumeMounts:
@@ -27,7 +27,7 @@ spec:
               name: home
         - name: x11
           image: registry.opensuse.org/home/atgracey/wallboardos/15.4/x11:icewm
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: true
             privileged: true
