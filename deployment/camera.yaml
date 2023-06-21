@@ -10,7 +10,7 @@ spec:
       containers:
       - image: registry.opensuse.org/home/nbelouin/webrtc-demo/images/gstreamer:latest
         name: udev-camera
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         command: ['bash']
         args: ['-c','gst-launch-1.0 -v v4l2src "device=$(for i in ${!UDEV_DEVNODE_*}; do echo ${!i}; done)" ! videoconvert ! clockoverlay !  vp8enc deadline=1 ! rtpvp8pay ! whipsink name=ws whip-endpoint="http://webrtc-hub.akri-discovered:8080/whip"']
         resources:
